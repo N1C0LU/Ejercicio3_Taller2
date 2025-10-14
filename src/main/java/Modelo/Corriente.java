@@ -8,6 +8,12 @@ package Modelo;
  *
  * @author Nicolas Castaño
  */
-public class Corriente {
+public class Corriente extends CuentaBanco {
+    double cupoSobregiro;
+    
+    public Corriente (int numeroCuenta, String nombreDueño, int dia, int mes, int año, double saldo, double cupoSobregiro){
+        super(numeroCuenta, nombreDueño, dia, mes, año, saldo); 
+        this.cupoSobregiro = cupoSobregiro;
+    }
     
 }

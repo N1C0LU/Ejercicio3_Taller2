@@ -16,13 +16,13 @@ public class CuentaBanco {
     int año;
     double saldo;
     
-    public CuentaBanco (int numeroCuenta, String nombreDueño, int dia, int mes, int año){
+    public CuentaBanco (int numeroCuenta, String nombreDueño, int dia, int mes, int año, double saldo){
         this.numeroCuenta = numeroCuenta;
         this.nombreDueño = nombreDueño;
         this.dia = dia;
         this.mes = mes;
         this.año = año;
-        this.saldo = saldo;
+        this.saldo = 0;
         }
     
     public String DatosCuenta (){
