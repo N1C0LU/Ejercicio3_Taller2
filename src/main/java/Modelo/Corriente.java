@@ -16,6 +16,7 @@ public class Corriente extends CuentaBanco {
     public Corriente (int numeroCuenta, String nombreDueño, int dia, int mes, int año, double saldo, double cupoSobregiro){
         super(numeroCuenta, nombreDueño, dia, mes, año, saldo); 
         this.cupoSobregiro = cupoSobregiro;
+        this.tipoCuenta = "Corriente";
     }
     
     @Override

@@ -9,5 +9,31 @@ package Modelo;
  * @author Nicolas Castaño
  */
 public class Cliente {
+    private String nombre;
+    private CuentaBanco tipo;
+    private int id;
     
+    public Cliente(String nombre, int id, CuentaBanco tipo) {
+        this.nombre = nombre;
+        this.id = id;
+        this.tipo = tipo;
+        
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public CuentaBanco getCuenta() {
+        return tipo;
+    }
+    
+    public String toString() {
+        return "Cliente: " + nombre + "Identificación: " + id + "Tipo de cuenta:" + tipo.getTipoCuenta()+ "Datos de la cuenta: "+tipo.DatosCuenta();
+    }
+
 }

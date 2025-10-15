@@ -12,6 +12,7 @@ public class Ahorros extends CuentaBanco {
     
     public Ahorros (int numeroCuenta, String nombreDueño, int dia, int mes, int año, double saldo){
         super(numeroCuenta, nombreDueño, dia, mes, año, saldo);
+        this.tipoCuenta = "Ahorros";
     }
     
     
