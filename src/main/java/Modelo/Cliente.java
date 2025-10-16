@@ -33,7 +33,7 @@ public class Cliente {
     }
     
     public String toString() {
-        return "Cliente: " + nombre + "Identificación: " + id + "Tipo de cuenta:" + tipo.getTipoCuenta()+ "Datos de la cuenta: "+tipo.DatosCuenta();
+        return "Cliente: " + nombre + "\nIdentificación: " + id + "\nTipo de cuenta:" + tipo.getTipoCuenta()+ "\nDatos de la cuenta: "+tipo.DatosCuenta();
     }
 
 }

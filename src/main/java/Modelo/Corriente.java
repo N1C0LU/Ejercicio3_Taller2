@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author Nicolas Castaño
  */
 public class Corriente extends CuentaBanco {
-    double cupoSobregiro = -100000;
+    private double cupoSobregiro;
     
     public Corriente (int numeroCuenta, String nombreDueño, int dia, int mes, int año, double saldo, double cupoSobregiro){
         super(numeroCuenta, nombreDueño, dia, mes, año, saldo); 
@@ -21,14 +21,31 @@ public class Corriente extends CuentaBanco {
     
     @Override
     public void retirar(double valor) {
+        if (valor <= 0) {
+            JOptionPane.showMessageDialog(null, "El valor del retiro debe ser positivo.");
+            return;
+        }
+
+        
         if (saldo >= valor) {
             saldo -= valor;
-        } else if (saldo - valor >= cupoSobregiro) {
+            JOptionPane.showMessageDialog(null,
+                    "Retiro exitoso.\nSaldo actual: $" + saldo);
+        }
+        
+        else if ((saldo - valor) >= -cupoSobregiro) {
             saldo -= valor;
-            JOptionPane.showMessageDialog(null,"Se ha realizado su retiro con sobregiro. Saldo actual: $" + saldo);
-            } else {
-                JOptionPane.showMessageDialog(null, "No tienes más cupo de sobregiro");
-        } 
+            double usado = -saldo;
+            double restante = cupoSobregiro - usado;
+            JOptionPane.showMessageDialog(null,
+                    "Retiro realizado con sobregiro.\nSaldo actual: $" + saldo +
+                    "\nCupo restante: $" + restante);
+        }
+       
+        else {
+            JOptionPane.showMessageDialog(null,
+                    "No tienes más cupo de sobregiro disponible.\nSaldo actual: $" + saldo);
+        }
     }
     
     public double getCupoSobregiro() {
@@ -37,7 +54,7 @@ public class Corriente extends CuentaBanco {
 
     @Override
     public String DatosCuenta() {
-        return super.DatosCuenta() + "  Cupo de sobregiro: $" + cupoSobregiro;
+        return super.DatosCuenta() + "  \nCupo de sobregiro: $" + cupoSobregiro;
         }
 }
 

@@ -23,12 +23,12 @@ public class CuentaBanco {
         this.dia = dia;
         this.mes = mes;
         this.año = año;
-        this.saldo = 0;
+        this.saldo = saldo;
         this.tipoCuenta = "Ninguna";
         }
     
     public String DatosCuenta (){
-        return "Numero de cuenta" +numeroCuenta+ "Nombre del propietario"+nombreDueño+ "Fecha de apertura"+dia+"/"+mes+"/"+año;    
+        return "Numero de cuenta" +numeroCuenta+ "\nNombre del propietario"+nombreDueño+ "  \nFecha de apertura"+dia+"/"+mes+"/"+año;    
     }
     
     public String getTipoCuenta() {
