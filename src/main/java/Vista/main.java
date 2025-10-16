@@ -51,7 +51,7 @@ public class main {
         if (tipoSeleccionado.equals("Ahorros")) {
             cuenta = new Ahorros(numeroCuenta, nombre, dia, mes, año, saldo);
         } else {
-            cuenta = new Corriente(numeroCuenta, nombre, dia, mes, año, saldo, 100000);
+            cuenta = new Corriente(numeroCuenta, nombre, dia, mes, año, saldo, -100000);
         }
         
         Cliente cliente = new Cliente(nombre, id, cuenta);

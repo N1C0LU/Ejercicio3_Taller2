@@ -25,28 +25,20 @@ public class Corriente extends CuentaBanco {
             JOptionPane.showMessageDialog(null, "El valor del retiro debe ser positivo.");
             return;
         }
-
-        
         if (saldo >= valor) {
             saldo -= valor;
             JOptionPane.showMessageDialog(null,
                     "Retiro exitoso.\nSaldo actual: $" + saldo);
-        }
-        
-        else if ((saldo - valor) >= -cupoSobregiro) {
+        }else if ((saldo - valor) >= cupoSobregiro) {
             saldo -= valor;
-            double usado = -saldo;
-            double restante = cupoSobregiro - usado;
-            JOptionPane.showMessageDialog(null,
-                    "Retiro realizado con sobregiro.\nSaldo actual: $" + saldo +
-                    "\nCupo restante: $" + restante);
-        }
-       
-        else {
-            JOptionPane.showMessageDialog(null,
-                    "No tienes más cupo de sobregiro disponible.\nSaldo actual: $" + saldo);
+            double usado = Math.abs(saldo);
+            double disponible = Math.abs(cupoSobregiro) - usado;
+            JOptionPane.showMessageDialog(null,"Retiro realizado con sobregiro.\nSaldo actual: $" + saldo +"\nHas usado $" + usado + " del sobregiro.\nCupo restante: $" + disponible);
+        }else {
+            JOptionPane.showMessageDialog(null,"No tienes más cupo de sobregiro disponible.\nSaldo actual: $" + saldo +"\nLímite de sobregiro: $" + cupoSobregiro);
         }
     }
+
     
     public double getCupoSobregiro() {
         return cupoSobregiro;
